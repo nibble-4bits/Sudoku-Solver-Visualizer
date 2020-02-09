@@ -1,5 +1,5 @@
 # Sudoku Solver Visualizer
-A web application to visualize sudoku solving using backtracking. I created this visualization tool to see how the backtracking algorithm in action. I hope this may help a few people out there understand how backtracking works!
+A web application to visualize sudoku solving using backtracking. I created this visualization tool to see the backtracking algorithm in action. I hope this may help a few people out there understand how backtracking works!
 
 ## To Do
 * Add styling to the app to make it more appealing
