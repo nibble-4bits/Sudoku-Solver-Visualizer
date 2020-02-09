@@ -1,0 +1,17 @@
+{
+  "name": "sudoku-solver-visualizer",
+  "version": "1.0.0",
+  "description": "A web application to visualize sudoku solving using backtracking",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sudoku",
+    "solver",
+    "visualizer",
+    "backtracking"
+  ],
+  "author": "Luis De Anda",
+  "license": "ISC"
+}
