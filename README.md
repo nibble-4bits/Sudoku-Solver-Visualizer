@@ -7,4 +7,4 @@ A web application to visualize sudoku solving using backtracking. I created this
 * Implement functionality to generate sudokus
 
 ## Acknowledgments
-* I was greatly inspired by Clément Mihailescu and his awesome pathfinder visualizer tool! You can check it [here](https://github.com/clementmihailescu/Pathfinding-Visualizer)
+* I was greatly inspired by [Clément Mihailescu](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) and his awesome pathfinder visualizer tool! You can check it [here](https://github.com/clementmihailescu/Pathfinding-Visualizer)
