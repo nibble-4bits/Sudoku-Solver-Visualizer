@@ -5,6 +5,11 @@ html, body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    height: 100vh;
+}
+
+header p {
+    font-size: 2em;
 }
 
 table {
@@ -12,12 +17,8 @@ table {
     border-collapse: collapse;
 }
 
-tr {
-    margin: 0 10px;
-}
-
 td {
-    font-size: 2em;
+    font-size: 190%;
     text-align: center;
     border: 1px solid black;
     width: 50px;
@@ -34,4 +35,8 @@ td.box-boundary-row {
 
 td.box-boundary-col {
     border-right: 3px solid black;
+}
+
+button {
+    margin: 0 1em;
 }
