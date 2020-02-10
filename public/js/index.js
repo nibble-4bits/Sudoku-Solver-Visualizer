@@ -3,7 +3,10 @@
 import { BacktrackingSolver } from './algorithms/BacktrackingSolver.js';
 
 let sudokuTbl = document.getElementById('sudoku');
-const sampleSudoku = [
+let btnClear = document.getElementById('btn-clear');
+let btnSolve = document.getElementById('btn-solve');
+let btnGenerate = document.getElementById('btn-generate');
+let sampleSudoku = [
     [0, 2, 0, 0, 0, 0, 0, 0, 7],
     [4, 0, 0, 0, 0, 5, 0, 8, 0],
     [0, 3, 0, 0, 9, 0, 0, 0, 0],
@@ -16,6 +19,10 @@ const sampleSudoku = [
 ];
 
 function renderSudoku(sudoku) {
+    while (sudokuTbl.firstChild) {
+        sudokuTbl.removeChild(sudokuTbl.firstChild);
+    }
+
     for (let i = 0; i < sudoku.length; i++) {
         let sudokuRow = document.createElement('tr');
         for (let j = 0; j < sudoku[i].length; j++) {
@@ -45,15 +52,32 @@ function renderSudoku(sudoku) {
 }
 
 function renderCell(cellId, value) {
-    let cell = document.getElementById(cellId);    
+    let cell = document.getElementById(cellId);
     cell.textContent = value;
 }
 
 function main() {
-    let backtrackingSolver = new BacktrackingSolver(sampleSudoku, renderCell);
-
     renderSudoku(sampleSudoku);
-    backtrackingSolver.solve();
+
+    btnSolve.addEventListener('click', evt => {
+        let backtrackingSolver = new BacktrackingSolver(sampleSudoku, renderCell);
+        backtrackingSolver.solve();
+    });
+
+    btnClear.addEventListener('click', evt => {
+        sampleSudoku = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ];
+        renderSudoku(sampleSudoku);
+    });
 }
 
 main();
