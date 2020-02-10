@@ -4,6 +4,7 @@
   "description": "A web application to visualize sudoku solving using backtracking",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +14,9 @@
     "backtracking"
   ],
   "author": "Luis De Anda",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "express": "^4.17.1"
+  }
 }
