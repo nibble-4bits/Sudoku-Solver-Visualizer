@@ -5,9 +5,9 @@ import { utilFunctions } from '../util.js';
 // Constants for the simulation speed, 
 // each value represents the how much the solve function will sleep in milliseconds
 const simulationSpeed = {
-    SLOW: 100,
-    AVERAGE: 40,
-    FAST: 5,
+    SLOW: 80,
+    AVERAGE: 35,
+    FAST: 1,
     FASTEST: 0
 };
 
