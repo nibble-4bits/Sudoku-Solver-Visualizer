@@ -6,19 +6,30 @@ let sudokuTblElement = document.getElementById('sudoku');
 let btnClear = document.getElementById('btn-clear');
 let btnSolve = document.getElementById('btn-solve');
 let btnGenerate = document.getElementById('btn-generate');
+let sudokuStatus = document.getElementById('sudoku-status');
 
 let sudoku = new Sudoku(sudokuTblElement);
 sudoku.renderSudoku();
+sudoku.setEditable(true);
 
-btnSolve.addEventListener('click', async (evt) => {
+btnClear.addEventListener('click', evt => {
+    sudoku.clear();
+    sudoku.setEditable(true);
+    sudokuStatus.textContent = '';
+});
+
+btnSolve.addEventListener('click', async evt => {
+    sudoku.setEditable(false);
     if (await sudoku.solve()) {
-        alert('SOLVED!')
+        sudokuStatus.classList.add('text-success');
+        sudokuStatus.textContent = 'Solved!';
     }
     else {
-        alert('UNSOLVABLE')
+        sudokuStatus.classList.add('text-danger');
+        sudokuStatus.textContent = 'Unsolvable!';
     }
 });
 
-btnClear.addEventListener('click', evt => {
-
+btnGenerate.addEventListener('click', evt => {
+    // TODO: Implement this event listener
 });
