@@ -1,15 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
 html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    height: 100vh;
-}
-
-header p {
-    font-size: 2em;
 }
 
 table {
@@ -26,6 +20,10 @@ td {
     caret-color: black;
 }
 
+.focused-cell {
+    background-color: #ddd;
+}
+
 td.discovered-num {
     color: red;
 }
@@ -40,4 +38,7 @@ td.box-boundary-col {
 
 button {
     margin: 0 1em;
+    padding: 0.3em 1em;
+    border-radius: 10px;
+    border: none;
 }
