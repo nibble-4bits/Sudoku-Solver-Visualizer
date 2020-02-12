@@ -42,16 +42,19 @@ class Sudoku {
                 let sudokuCell = document.createElement('td');
                 let num = this.sudoku[i][j];
 
-                sudokuCell.id = `cell-${i * this.sudoku.length + j}`;
-                sudokuCell.contentEditable = true;
+                sudokuCell.id = `cell-${i}-${j}`;
                 sudokuCell.addEventListener('keydown', evt => {
-                    let cellPos = parseInt(evt.target.id.match(/\d+/)[0]);
-                    let row = Math.floor(cellPos / 9);
-                    let col = cellPos % 9;
+                    let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let input = parseInt(evt.key);
 
-                    if (evt.target.textContent.length > 0 && evt.keyCode !== 8) {
-                        evt.preventDefault();
+                    if (evt.target.textContent.length > 0) {
+                        if (evt.keyCode === 8) {
+                            evt.target.classList.remove('given-num');
+                            evt.target.classList.add('discovered-num');
+                        }
+                        else {
+                            evt.preventDefault();
+                        }
                     }
 
                     if (this.isNumberValid(row, col, input)) {
@@ -61,6 +64,50 @@ class Sudoku {
                     }
                     else {
                         evt.preventDefault();
+                    }
+                });
+
+                sudokuCell.addEventListener('focusin', evt => {
+                    let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
+                    let rowStart = row - row % 3;
+                    let rowEnd = rowStart + 3;
+                    let colStart = col - col % 3;
+                    let colEnd = colStart + 3;
+
+                    for (let i = 0; i < this.sudoku[row].length; i++) {
+                        let cellRow = document.getElementById(`cell-${row}-${i}`);
+                        let cellCol = document.getElementById(`cell-${i}-${col}`);
+                        cellRow.classList.add('focused-cell');
+                        cellCol.classList.add('focused-cell');
+                    }
+
+                    for (let x = rowStart; x < rowEnd; x++) {
+                        for (let y = colStart; y < colEnd; y++) {
+                            let cellBox = document.getElementById(`cell-${x}-${y}`);
+                            cellBox.classList.add('focused-cell');
+                        }
+                    }
+                });
+
+                sudokuCell.addEventListener('focusout', evt => {
+                    let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
+                    let rowStart = row - row % 3;
+                    let rowEnd = rowStart + 3;
+                    let colStart = col - col % 3;
+                    let colEnd = colStart + 3;
+
+                    for (let i = 0; i < this.sudoku[row].length; i++) {
+                        let cellRow = document.getElementById(`cell-${row}-${i}`);
+                        let cellCol = document.getElementById(`cell-${i}-${col}`);
+                        cellRow.classList.remove('focused-cell');
+                        cellCol.classList.remove('focused-cell');
+                    }
+
+                    for (let x = rowStart; x < rowEnd; x++) {
+                        for (let y = colStart; y < colEnd; y++) {
+                            let cellBox = document.getElementById(`cell-${x}-${y}`);
+                            cellBox.classList.remove('focused-cell');
+                        }
                     }
                 });
 
@@ -93,6 +140,42 @@ class Sudoku {
     renderCell(cellId, value) {
         let cell = document.getElementById(cellId);
         cell.textContent = value;
+    }
+
+    /**
+     * Clears the board and re-renders the sudoku
+     */
+    clear() {
+        this.sudoku = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ];
+        this.renderSudoku();
+    }
+
+    /**
+     * Makes the sudoku editable or uneditable by the user
+     * @param {Boolean} editable If true the sudoku can be edited by the user, otherwise it can't be edited
+     */
+    setEditable(editable) {
+        for (let i = 0; i < this.sudoku.length; i++) {
+            for (let j = 0; j < this.sudoku[i].length; j++) {
+                let currentCell = document.getElementById(`cell-${i}-${j}`);
+                if (editable) {
+                    currentCell.contentEditable = true;
+                }
+                else {
+                    currentCell.contentEditable = false;
+                }
+            }
+        }
     }
 
     /**
@@ -161,6 +244,10 @@ class Sudoku {
         return true;
     }
 
+    /**
+     * Finds the next empty cell
+     * @returns {Array<Number>|null} A pair of coordinates if an empty cell was found, null otherwise
+     */
     findNextEmpty() {
         for (let i = 0; i < this.sudoku.length; i++) {
             for (let j = 0; j < this.sudoku[i].length; j++) {
@@ -183,13 +270,12 @@ class Sudoku {
         }
         else {
             let [row, col] = empty;
-            let cellPos = row * this.sudoku.length + col;
 
             for (let possibleNum = 1; possibleNum <= 9; possibleNum++) {
                 if (this.isNumberValid(row, col, possibleNum)) {
                     this.sudoku[row][col] = possibleNum;
 
-                    this.renderCell(`cell-${cellPos}`, possibleNum);
+                    this.renderCell(`cell-${row}-${col}`, possibleNum);
                     await utilFunctions.sleep(this.simulationSpeed);
 
                     if (await this.solve()) {
@@ -197,7 +283,7 @@ class Sudoku {
                     }
 
                     this.sudoku[row][col] = 0;
-                    this.renderCell(`cell-${cellPos}`, '');
+                    this.renderCell(`cell-${row}-${col}`, '');
                 }
             }
             return false;
