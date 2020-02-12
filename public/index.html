@@ -11,11 +11,13 @@
 </head>
 
 <body>
-    <header class="container-fluid mb-5 bg-secondary text-white text-center">
-        <p>Sudoku Solver</p>
-    </header>
-
     <div class="container mt-5">
+        <div class="row mb-3">
+            <div class="col text-center">
+                <h1>Sudoku Solver</h1>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <table id="sudoku"></table>
@@ -24,9 +26,15 @@
 
         <div class="row mt-4">
             <div class="col d-flex justify-content-center">
-                <button id="btn-clear" type="button">Clear</button>
-                <button id="btn-solve" type="button">Solve</button>
-                <button id="btn-generate" type="button">Generate</button>
+                <button class="bg-info text-white" id="btn-clear" type="button">Clear</button>
+                <button class="bg-info text-white" id="btn-solve" type="button">Solve</button>
+                <button class="bg-info text-white" id="btn-generate" type="button">Generate</button>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col d-flex justify-content-center">
+                <h3 id="sudoku-status"></h3>
             </div>
         </div>
     </div>
