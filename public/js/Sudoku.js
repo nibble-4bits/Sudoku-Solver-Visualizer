@@ -46,24 +46,26 @@ class Sudoku {
                 sudokuCell.addEventListener('keydown', evt => {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let input = parseInt(evt.key);
-
-                    if (evt.target.textContent.length > 0) {
+                    
+                    if (evt.target.textContent.length > 0 || !input) {
                         if (evt.keyCode === 8) {
                             evt.target.classList.remove('given-num');
                             evt.target.classList.add('discovered-num');
+                            this.sudoku[row][col] = 0;
                         }
                         else {
                             evt.preventDefault();
                         }
                     }
-
-                    if (this.isNumberValid(row, col, input)) {
-                        evt.target.classList.remove('discovered-num');
-                        evt.target.classList.add('given-num');
-                        this.sudoku[row][col] = input || 0;
-                    }
                     else {
-                        evt.preventDefault();
+                        if (this.isNumberValid(row, col, input)) {
+                            evt.target.classList.remove('discovered-num');
+                            evt.target.classList.add('given-num');
+                            this.sudoku[row][col] = input;
+                        }
+                        else {
+                            evt.preventDefault();
+                        }
                     }
                 });
 
