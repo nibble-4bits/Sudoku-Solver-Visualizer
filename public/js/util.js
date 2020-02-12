@@ -1,3 +1,5 @@
+'use strict';
+
 const utilFunctions = {
     /**
      * Sleeps for a certain number of milliseconds
