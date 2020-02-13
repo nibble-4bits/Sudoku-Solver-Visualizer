@@ -2,8 +2,8 @@
 A web application to visualize sudoku solving using backtracking. I created this visualization tool to see the backtracking algorithm in action. I hope this may help a few people out there understand how backtracking works!
 
 ## To Do
-* Add styling to the app to make it more appealing
-* Implement functionality for the user to be able to fill the sudoku cells
+* ~~Add styling to the app to make it more appealing~~ (DONE, 12/02/2020)
+* ~~Implement functionality for the user to be able to fill the sudoku cells~~ (DONE, 11/02/2020)
 * Implement functionality to generate sudokus
 
 ## Acknowledgments
