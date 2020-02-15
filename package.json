@@ -16,7 +16,6 @@
   "author": "Luis De Anda",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.4.1",
     "express": "^4.17.1"
   }
 }
