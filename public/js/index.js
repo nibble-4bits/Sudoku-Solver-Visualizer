@@ -1,6 +1,6 @@
 'use strict';
 
-import { Sudoku } from './Sudoku.js';
+import { SudokuRenderer } from './SudokuRenderer.js';
 
 let sudokuTblElement = document.getElementById('sudoku');
 let btnClear = document.getElementById('btn-clear');
@@ -8,19 +8,19 @@ let btnSolve = document.getElementById('btn-solve');
 let btnGenerate = document.getElementById('btn-generate');
 let sudokuStatus = document.getElementById('sudoku-status');
 
-let sudoku = new Sudoku(sudokuTblElement);
-sudoku.renderSudoku();
-sudoku.setEditable(true);
+let sudokuRenderer = new SudokuRenderer(sudokuTblElement);
+sudokuRenderer.renderSudoku();
+sudokuRenderer.setEditable(true);
 
 btnClear.addEventListener('click', evt => {
-    sudoku.clear();
-    sudoku.setEditable(true);
+    sudokuRenderer.clear();
+    sudokuRenderer.setEditable(true);
     sudokuStatus.textContent = '';
 });
 
 btnSolve.addEventListener('click', async evt => {
-    sudoku.setEditable(false);
-    if (await sudoku.solve()) {
+    sudokuRenderer.setEditable(false);
+    if (await sudokuRenderer.renderSolve()) {
         sudokuStatus.classList.add('text-success');
         sudokuStatus.textContent = 'Solved!';
     }
