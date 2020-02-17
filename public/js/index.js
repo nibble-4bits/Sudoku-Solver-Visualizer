@@ -20,6 +20,7 @@ btnClear.addEventListener('click', evt => {
 
 btnSolve.addEventListener('click', async evt => {
     sudokuRenderer.setEditable(false);
+    sudokuStatus.classList.value = '';
     if (await sudokuRenderer.renderSolve()) {
         sudokuStatus.classList.add('text-success');
         sudokuStatus.textContent = 'Solved!';
