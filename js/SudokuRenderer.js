@@ -3,20 +3,11 @@
 import { Sudoku } from './model/Sudoku.js';
 import { SudokuSolver } from './SudokuSolver.js';
 
-// Constants for the simulation speed, 
-// each value represents the how much the solve function will sleep in milliseconds
-const solvingSpeed = {
-    SLOW: 80,
-    AVERAGE: 35,
-    FAST: 1,
-    FASTEST: 0
-};
-
 class SudokuRenderer {
     constructor(sudokuHTMLElement) {
         this.sudokuHTMLElement = sudokuHTMLElement;
         this.sudoku = new Sudoku();
-        this.solver = new SudokuSolver(this.sudoku, this.renderCell, solvingSpeed.FAST);
+        this.solver = new SudokuSolver(this.sudoku, this.renderCell);
     }
 
     /**
