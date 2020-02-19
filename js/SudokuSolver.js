@@ -3,10 +3,19 @@
 import { utilFunctions } from './util.js';
 
 class SudokuSolver {
-    constructor(sudoku, renderCellFunc, solvingSpeed) {
+    // Constants for the simulation speed, 
+    // each value represents the how much the solve function will sleep in milliseconds
+    static solvingSpeed = {
+        SLOW: 80,
+        AVERAGE: 35,
+        FAST: 1,
+        FASTEST: 0
+    };
+
+    constructor(sudoku, renderCellFunc) {
         this.sudoku = sudoku;
         this.renderCell = renderCellFunc;
-        this.solvingSpeed = solvingSpeed;
+        this.speed = SudokuSolver.solvingSpeed.FAST;
     }
 
     /**
@@ -22,6 +31,10 @@ class SudokuSolver {
             }
         }
         return null;
+    }
+
+    setSolvingSpeed(speed) {
+        this.speed = speed;
     }
 
     /**
@@ -41,7 +54,7 @@ class SudokuSolver {
                     this.sudoku.board[row][col] = possibleNum;
 
                     this.renderCell(`cell-${row}-${col}`, possibleNum);
-                    await utilFunctions.sleep(this.solvingSpeed);
+                    await utilFunctions.sleep(this.speed);
 
                     if (await this.solve()) {
                         return true;
