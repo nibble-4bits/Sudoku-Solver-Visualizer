@@ -7,7 +7,7 @@ https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 ## To Do
 * ~~Add styling to the app to make it more appealing~~ (DONE, 2/12/2020)
 * ~~Implement functionality for the user to be able to fill the sudoku cells~~ (DONE, 2/11/2020)
-* Implement functionality to generate sudokus
+* ~~Implement functionality to generate sudokus~~ (DONE, 2/20/2020)
 
 ## Acknowledgments
 * I was greatly inspired by [Clément Mihailescu](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) and his awesome pathfinder visualizer tool! You can check it [here](https://github.com/clementmihailescu/Pathfinding-Visualizer)
