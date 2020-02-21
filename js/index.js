@@ -2,6 +2,7 @@
 
 import { SudokuRenderer } from './SudokuRenderer.js';
 import { SudokuSolver } from './SudokuSolver.js';
+import { SudokuGenerator } from './SudokuGenerator.js';
 
 const sudokuTblElement = document.getElementById('sudoku');
 const sldSolvingSpeed = document.getElementById('sld-solving-speed');
@@ -54,5 +55,7 @@ btnSolve.addEventListener('click', async evt => {
 });
 
 btnGenerate.addEventListener('click', evt => {
-    // TODO: Implement this event listener
+    const sudokuGenerator = new SudokuGenerator();
+    sudokuRenderer.setSudoku(sudokuGenerator.generateSudoku());
+    sudokuRenderer.renderSudoku();
 });
