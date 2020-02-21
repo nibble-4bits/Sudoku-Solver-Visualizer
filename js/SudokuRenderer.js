@@ -126,7 +126,7 @@ class SudokuRenderer {
         cell.textContent = value;
     }
 
-    
+
     async renderSolve() {
         return await this.solver.solve();
     }
@@ -137,6 +137,11 @@ class SudokuRenderer {
     clear() {
         this.sudoku.clear();
         this.renderSudoku();
+    }
+
+    setSudoku(sudoku) {
+        this.sudoku = sudoku;
+        this.solver.setSudoku(sudoku);
     }
 
     /**

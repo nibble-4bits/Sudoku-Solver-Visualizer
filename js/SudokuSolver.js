@@ -18,6 +18,10 @@ class SudokuSolver {
         this.speed = SudokuSolver.solvingSpeed.FAST;
     }
 
+    setSudoku(sudoku) {
+        this.sudoku = sudoku;
+    }
+
     /**
      * Finds the next empty cell
      * @returns {Array<Number>|null} A pair of coordinates if an empty cell was found, null otherwise
