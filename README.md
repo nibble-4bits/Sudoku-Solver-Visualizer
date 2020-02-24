@@ -11,3 +11,6 @@ https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 
 ## Acknowledgments
 * I was greatly inspired by [Clément Mihailescu](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) and his awesome pathfinder visualizer tool! You can check it [here](https://github.com/clementmihailescu/Pathfinding-Visualizer)
+
+## License
+[GPL v3.0](https://choosealicense.com/licenses/gpl-3.0/)
