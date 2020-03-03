@@ -110,3 +110,6 @@ typings/
 
 # dist directory
 dist/
+
+# deploy script
+deploy.sh
