@@ -108,8 +108,5 @@ typings/
 # VSCode settings
 .vscode/
 
-# dist directory
-dist/
-
 # deploy script
 deploy.sh
