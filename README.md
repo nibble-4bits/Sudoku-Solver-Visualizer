@@ -6,6 +6,8 @@ A web application to visualize sudoku solving using backtracking. I created this
 ## Live Demo
 https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 
+![GIF demonstration](demo.gif)
+
 ## To Do
 * ~~Add styling to the app to make it more appealing~~ (DONE, 2/12/2020)
 * ~~Implement functionality for the user to be able to fill the sudoku cells~~ (DONE, 2/11/2020)
