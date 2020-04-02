@@ -1,6 +1,6 @@
 'use strict';
 
-import { Sudoku } from './model/Sudoku.js';
+import { Sudoku } from './Sudoku.js';
 import { SudokuSolver } from './SudokuSolver.js';
 
 class SudokuRenderer {
@@ -14,6 +14,7 @@ class SudokuRenderer {
      * Render the sudoku on the HTML view
      */
     renderSudoku() {
+        // Remove all children of the sudokuHTMLElement
         while (this.sudokuHTMLElement.firstChild) {
             this.sudokuHTMLElement.removeChild(this.sudokuHTMLElement.firstChild);
         }
@@ -25,6 +26,7 @@ class SudokuRenderer {
                 let num = this.sudoku.board[i][j];
 
                 sudokuCell.id = `cell-${i}-${j}`;
+                
                 sudokuCell.addEventListener('keydown', evt => {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let input = parseInt(evt.key);
@@ -51,6 +53,7 @@ class SudokuRenderer {
                     }
                 });
 
+                // Highlight row, column and box where the focused cell is in
                 sudokuCell.addEventListener('focusin', evt => {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let rowStart = row - row % 3;
@@ -73,6 +76,7 @@ class SudokuRenderer {
                     }
                 });
 
+                // Remove highlight of row, column and box where the focused cell was in
                 sudokuCell.addEventListener('focusout', evt => {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let rowStart = row - row % 3;
@@ -152,12 +156,7 @@ class SudokuRenderer {
         for (let i = 0; i < this.sudoku.board.length; i++) {
             for (let j = 0; j < this.sudoku.board.length; j++) {
                 let currentCell = document.getElementById(`cell-${i}-${j}`);
-                if (editable) {
-                    currentCell.contentEditable = true;
-                }
-                else {
-                    currentCell.contentEditable = false;
-                }
+                currentCell.contentEditable = editable;
             }
         }
     }

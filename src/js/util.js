@@ -1,6 +1,6 @@
 'use strict';
 
-const utilFunctions = {
+const Util = {
     /**
      * Sleeps for a certain number of milliseconds
      * @param {Number} ms Number of milliseconds to sleep
@@ -16,4 +16,4 @@ const utilFunctions = {
     }
 }
 
-export { utilFunctions };
+export { Util };

@@ -97,6 +97,21 @@ class Sudoku {
         }
         return true;
     }
+
+    /**
+     * Finds the next empty cell
+     * @returns {Array<Number>|null} A pair of coordinates if an empty cell was found, null otherwise
+     */
+    findNextEmpty() {
+        for (let i = 0; i < this.board.length; i++) {
+            for (let j = 0; j < this.board.length; j++) {
+                if (this.board[i][j] === 0) {
+                    return [i, j];
+                }
+            }
+        }
+        return null;
+    }
 }
 
 export { Sudoku };

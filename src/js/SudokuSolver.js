@@ -1,6 +1,6 @@
 'use strict';
 
-import { utilFunctions } from './util.js';
+import { Util } from './Util.js';
 
 // Constants for the simulation speed, 
 // each value represents the how much the solve function will sleep in milliseconds
@@ -22,21 +22,6 @@ class SudokuSolver {
         this.sudoku = sudoku;
     }
 
-    /**
-     * Finds the next empty cell
-     * @returns {Array<Number>|null} A pair of coordinates if an empty cell was found, null otherwise
-     */
-    findNextEmpty() {
-        for (let i = 0; i < this.sudoku.board.length; i++) {
-            for (let j = 0; j < this.sudoku.board.length; j++) {
-                if (this.sudoku.board[i][j] === 0) {
-                    return [i, j];
-                }
-            }
-        }
-        return null;
-    }
-
     setSolvingSpeed(speed) {
         this.speed = speed;
     }
@@ -46,7 +31,7 @@ class SudokuSolver {
      * @returns {Boolean} True if the sudoku has at least 1 solution, false if unsolvable
      */
     async solve() {
-        let empty = this.findNextEmpty();
+        let empty = this.sudoku.findNextEmpty();
         if (!empty) {
             return true;
         }
@@ -58,7 +43,7 @@ class SudokuSolver {
                     this.sudoku.board[row][col] = possibleNum;
 
                     this.renderCell(`cell-${row}-${col}`, possibleNum);
-                    await utilFunctions.sleep(this.speed);
+                    await Util.sleep(this.speed);
 
                     if (await this.solve()) {
                         return true;
