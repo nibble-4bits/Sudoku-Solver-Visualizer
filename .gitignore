@@ -110,3 +110,6 @@ typings/
 
 # deploy script
 deploy.sh
+
+# dist bundle.js
+dist/bundle.js
