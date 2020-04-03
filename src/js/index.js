@@ -43,6 +43,7 @@ btnClear.addEventListener('click', evt => {
     sudokuRenderer.clear();
     sudokuRenderer.setEditable(true);
     sudokuStatus.textContent = '';
+    btnSolve.disabled = false;
 });
 
 btnSolve.addEventListener('click', async evt => {
