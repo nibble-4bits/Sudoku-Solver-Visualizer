@@ -49,6 +49,7 @@ btnSolve.addEventListener('click', async evt => {
     sudokuRenderer.setEditable(false);
     sudokuStatus.textContent = '';
     sudokuStatus.classList.value = '';
+    evt.target.disabled = true;
     if (await sudokuRenderer.renderSolve()) {
         sudokuStatus.classList.add('text-success');
         sudokuStatus.textContent = 'Solved!';
@@ -57,6 +58,7 @@ btnSolve.addEventListener('click', async evt => {
         sudokuStatus.classList.add('text-danger');
         sudokuStatus.textContent = 'Unsolvable!';
     }
+    evt.target.disabled = false;
 });
 
 btnGenerate.addEventListener('click', evt => {
