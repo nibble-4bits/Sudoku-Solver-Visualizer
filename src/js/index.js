@@ -52,7 +52,7 @@ btnSolve.addEventListener('click', async evt => {
     sudokuStatus.classList.value = '';
     evt.target.disabled = true;
     if (await sudokuRenderer.renderSolve()) {
-        if (!sudokuRenderer.solver.isBeingSolved) {
+        if (!sudokuRenderer.solver.wasCanceled) {
             sudokuStatus.classList.add('text-success');
             sudokuStatus.textContent = 'Solved!';
         }
@@ -68,4 +68,5 @@ btnGenerate.addEventListener('click', evt => {
     const sudokuGenerator = new SudokuGenerator();
     sudokuRenderer.setSudoku(sudokuGenerator.generateSudoku());
     sudokuRenderer.renderSudoku();
+    sudokuStatus.textContent = '';
 });

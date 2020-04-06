@@ -17,6 +17,7 @@ class SudokuSolver {
         this.renderCell = renderCellFunc;
         this.speed = solvingSpeed.FAST;
         this.isSolveCanceled = false;
+        this.wasCanceled = false;
         this.isBeingSolved = false;
     }
 
@@ -36,6 +37,7 @@ class SudokuSolver {
         if (!this.isSolveCanceled) {
             const empty = this.sudoku.findNextEmpty();
             if (!empty) {
+                this.wasCanceled = false;
                 this.isBeingSolved = false;
                 return true;
             }
@@ -62,6 +64,8 @@ class SudokuSolver {
             }
         }
         this.isSolveCanceled = false;
+        this.wasCanceled = true;
+        this.isBeingSolved = false;
         return true;
     }
 
