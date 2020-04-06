@@ -26,7 +26,7 @@ class SudokuRenderer {
                 let num = this.sudoku.board[i][j];
 
                 sudokuCell.id = `cell-${i}-${j}`;
-                
+
                 sudokuCell.addEventListener('keydown', evt => {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let input = parseInt(evt.key);
@@ -130,7 +130,6 @@ class SudokuRenderer {
         cell.textContent = value;
     }
 
-
     async renderSolve() {
         return await this.solver.solve();
     }
@@ -139,6 +138,7 @@ class SudokuRenderer {
      * Re-renders the sudoku
      */
     clear() {
+        this.solver.cancelSolve();
         this.sudoku.clear();
         this.renderSudoku();
     }

@@ -16,6 +16,8 @@ class SudokuSolver {
         this.sudoku = sudoku;
         this.renderCell = renderCellFunc;
         this.speed = solvingSpeed.FAST;
+        this.isSolveCanceled = false;
+        this.isBeingSolved = false;
     }
 
     setSudoku(sudoku) {
@@ -31,29 +33,41 @@ class SudokuSolver {
      * @returns {Boolean} True if the sudoku has at least 1 solution, false if unsolvable
      */
     async solve() {
-        let empty = this.sudoku.findNextEmpty();
-        if (!empty) {
-            return true;
-        }
-        else {
-            let [row, col] = empty;
-
-            for (let possibleNum = 1; possibleNum <= 9; possibleNum++) {
-                if (this.sudoku.isNumberValid(row, col, possibleNum)) {
-                    this.sudoku.board[row][col] = possibleNum;
-
-                    this.renderCell(`cell-${row}-${col}`, possibleNum);
-                    await UtilFuncs.sleep(this.speed);
-
-                    if (await this.solve()) {
-                        return true;
-                    }
-
-                    this.sudoku.board[row][col] = 0;
-                    this.renderCell(`cell-${row}-${col}`, '');
-                }
+        if (!this.isSolveCanceled) {
+            const empty = this.sudoku.findNextEmpty();
+            if (!empty) {
+                this.isBeingSolved = false;
+                return true;
             }
-            return false;
+            else {
+                this.isBeingSolved = true;
+                let [row, col] = empty;
+
+                for (let possibleNum = 1; possibleNum <= 9; possibleNum++) {
+                    if (this.sudoku.isNumberValid(row, col, possibleNum)) {
+                        this.sudoku.board[row][col] = possibleNum;
+
+                        this.renderCell(`cell-${row}-${col}`, possibleNum);
+                        await UtilFuncs.sleep(this.speed);
+
+                        if (await this.solve()) {
+                            return true;
+                        }
+
+                        this.sudoku.board[row][col] = 0;
+                        this.renderCell(`cell-${row}-${col}`, '');
+                    }
+                }
+                return false;
+            }
+        }
+        this.isSolveCanceled = false;
+        return true;
+    }
+
+    cancelSolve() {
+        if (this.isBeingSolved) {
+            this.isSolveCanceled = true;
         }
     }
 }

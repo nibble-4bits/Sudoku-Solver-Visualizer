@@ -43,20 +43,25 @@ btnClear.addEventListener('click', evt => {
     sudokuRenderer.clear();
     sudokuRenderer.setEditable(true);
     sudokuStatus.textContent = '';
+    btnSolve.disabled = false;
 });
 
 btnSolve.addEventListener('click', async evt => {
     sudokuRenderer.setEditable(false);
     sudokuStatus.textContent = '';
     sudokuStatus.classList.value = '';
+    evt.target.disabled = true;
     if (await sudokuRenderer.renderSolve()) {
-        sudokuStatus.classList.add('text-success');
-        sudokuStatus.textContent = 'Solved!';
+        if (!sudokuRenderer.solver.isBeingSolved) {
+            sudokuStatus.classList.add('text-success');
+            sudokuStatus.textContent = 'Solved!';
+        }
     }
     else {
         sudokuStatus.classList.add('text-danger');
         sudokuStatus.textContent = 'Unsolvable!';
     }
+    evt.target.disabled = false;
 });
 
 btnGenerate.addEventListener('click', evt => {
