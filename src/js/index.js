@@ -52,8 +52,10 @@ btnSolve.addEventListener('click', async evt => {
     sudokuStatus.classList.value = '';
     evt.target.disabled = true;
     if (await sudokuRenderer.renderSolve()) {
-        sudokuStatus.classList.add('text-success');
-        sudokuStatus.textContent = 'Solved!';
+        if (!sudokuRenderer.solver.isBeingSolved) {
+            sudokuStatus.classList.add('text-success');
+            sudokuStatus.textContent = 'Solved!';
+        }
     }
     else {
         sudokuStatus.classList.add('text-danger');
