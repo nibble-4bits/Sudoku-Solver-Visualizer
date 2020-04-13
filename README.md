@@ -13,6 +13,12 @@ https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 * ~~Implement functionality for the user to be able to fill the sudoku cells~~ (DONE, 2/11/2020)
 * ~~Implement functionality to generate sudokus~~ (DONE, 2/20/2020)
 
+## Built With
+* [Bootstrap](https://getbootstrap.com/)
+* [Lodash](https://lodash.com/)
+* [Webpack](https://webpack.js.org/)
+* [Travis CI](https://travis-ci.org/)
+
 ## Acknowledgments
 * I was greatly inspired by [Clément Mihailescu](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) and his awesome pathfinder visualizer tool! You can check it [here](https://github.com/clementmihailescu/Pathfinding-Visualizer)
 
