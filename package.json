@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "Luis De Anda",
-  "license": "GNU GPLv3",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nibble-4bits/Sudoku-Solver-Visualizer/issues"
   },
