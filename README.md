@@ -9,9 +9,9 @@ https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 ![GIF demonstration](demo.gif)
 
 ## To Do
-* ~~Add styling to the app to make it more appealing~~ (DONE, 2/12/2020)
-* ~~Implement functionality for the user to be able to fill the sudoku cells~~ (DONE, 2/11/2020)
-* ~~Implement functionality to generate sudokus~~ (DONE, 2/20/2020)
+- [x] Add styling to the app to make it more appealing (DONE, 2/12/2020)
+- [x] Implement functionality for the user to be able to fill the sudoku cells (DONE, 2/11/2020)
+- [x] Implement functionality to generate sudokus (DONE, 2/20/2020)
 
 ## Built With
 * [Bootstrap](https://getbootstrap.com/)
