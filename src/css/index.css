@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
 }
 
 table {
@@ -12,7 +13,7 @@ table {
 }
 
 td {
-    font-size: 190%;
+    font-size: 2em;
     text-align: center;
     border: 1px solid black;
     width: 50px;
@@ -38,7 +39,4 @@ td.box-boundary-col {
 
 button {
     margin: 0 1em;
-    padding: 0.3em 1em;
-    border-radius: 10px;
-    border: none;
 }
