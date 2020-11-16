@@ -8,17 +8,17 @@ h6 {
 }
 
 table {
-    border: 5px solid black;
+    border: 5px solid #000000;
     border-collapse: collapse;
 }
 
 td {
     font-size: 1.8em;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #000000;
     width: 45px;
     height: 45px;
-    caret-color: black;
+    caret-color: #000000;
 }
 
 .focused-cell {
@@ -26,23 +26,23 @@ td {
 }
 
 td.discovered-num {
-    color: red;
+    color: #ff0000;
 }
 
 td.box-boundary-row {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #000000;
 }
 
 td.box-boundary-col {
-    border-right: 3px solid black;
+    border-right: 3px solid #000000;
 }
 
 .status-success {
-    color: green;
+    color: #008000;
 }
 
 .status-failed {
-    color: red;
+    color: #ff0000;
 }
 
 button {
