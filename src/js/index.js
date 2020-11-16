@@ -4,10 +4,9 @@ import { SudokuRenderer } from './SudokuRenderer.js';
 import { solvingSpeed } from './SudokuSolver.js';
 import { SudokuGenerator } from './SudokuGenerator.js';
 
-// Import Bootstrap
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-// Import custom stylesheet
+// Import custom stylesheets
 import '../css/index.css';
+import '../css/layout.css';
 
 const sudokuTblElement = document.getElementById('sudoku');
 const sldSolvingSpeed = document.getElementById('sld-solving-speed');
@@ -53,12 +52,12 @@ btnSolve.addEventListener('click', async evt => {
     evt.target.disabled = true;
     if (await sudokuRenderer.renderSolve()) {
         if (!sudokuRenderer.solver.wasCanceled) {
-            sudokuStatus.classList.add('text-success');
+            sudokuStatus.classList.add('status-success');
             sudokuStatus.textContent = 'Solved!';
         }
     }
     else {
-        sudokuStatus.classList.add('text-danger');
+        sudokuStatus.classList.add('status-failed');
         sudokuStatus.textContent = 'Unsolvable!';
     }
     evt.target.disabled = false;

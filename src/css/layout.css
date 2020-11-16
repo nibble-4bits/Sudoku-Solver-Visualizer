@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #eef0f2;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "title"
+        "board"
+        "slider"
+        "buttons"
+        "status";
+}
+
+.title-row {
+    grid-area: title;
+    justify-self: center;
+}
+
+.board-row {
+    grid-area: board;
+    justify-self: center;
+    margin-top: 1em;
+}
+
+.slider-row {
+    grid-area: slider;
+    justify-self: center;
+    margin-top: 1em;
+}
+
+.buttons-row {
+    grid-area: buttons;
+    justify-self: center;
+    margin-top: 1em;
+}
+
+.status-row {
+    grid-area: status;
+    justify-self: center;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #196cca;
+    color: #eef0f2;
+    padding: 0.5em 0;
+    text-align: center;
+}

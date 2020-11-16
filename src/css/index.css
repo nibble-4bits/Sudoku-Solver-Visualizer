@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-html {
-    height: 100%;
-}
-
-body {
-    font-family: "Lato", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.33em 0;
 }
 
 table {
@@ -16,8 +16,8 @@ td {
     font-size: 1.8em;
     text-align: center;
     border: 1px solid black;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     caret-color: black;
 }
 
@@ -37,6 +37,20 @@ td.box-boundary-col {
     border-right: 3px solid black;
 }
 
+.status-success {
+    color: green;
+}
+
+.status-failed {
+    color: red;
+}
+
 button {
+    font-size: 16px;
     margin: 0 1em;
+    border: none;
+    border-radius: 0.25em;
+    padding: 0.5em 0.8em;
+    color: #ffffff;
+    background-color: #196cca;
 }

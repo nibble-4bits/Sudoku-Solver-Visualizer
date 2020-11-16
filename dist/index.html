@@ -9,46 +9,41 @@
 </head>
 
 <body>
-    <div class="container mt-3">
-        <div class="row mb-2">
-            <div class="col text-center">
-                <h1>Sudoku Solver</h1>
-            </div>
+    <div class="container">
+        <div class="title-row">
+            <h1>Sudoku Solver</h1>
+            <hr>
         </div>
 
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <table id="sudoku"></table>
-            </div>
+        <div class="board-row">
+            <table id="sudoku"></table>
         </div>
 
-        <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <label for="sld-solve-speed" class="mr-3">Solving speed:</label>
-                <input type="range" id="sld-solving-speed" min="0" max="3" value="2" list="ticks">
-                <datalist id="ticks">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </datalist>
-            </div>
+        <div class="slider-row">
+            <label for="sld-solve-speed">Solving speed:</label>
+            <input type="range" id="sld-solving-speed" min="0" max="3" value="2" list="ticks">
+            <datalist id="ticks">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </datalist>
         </div>
 
-        <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <button class="btn btn-info" id="btn-clear" type="button">Clear</button>
-                <button class="btn btn-info" id="btn-solve" type="button">Solve</button>
-                <button class="btn btn-info" id="btn-generate" type="button">Generate</button>
-            </div>
+        <div class="buttons-row">
+            <button id="btn-clear" type="button">Clear</button>
+            <button id="btn-solve" type="button">Solve</button>
+            <button id="btn-generate" type="button">Generate</button>
         </div>
 
-        <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <h3 id="sudoku-status"></h3>
-            </div>
+        <div class="status-row">
+            <h2 id="sudoku-status"></h2>
         </div>
     </div>
+
+    <footer>
+        Made with &#10084;&#65039; by Luis De Anda (nibble-4bits)
+    </footer>
 </body>
 
 </html>

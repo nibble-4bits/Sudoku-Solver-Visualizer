@@ -31,8 +31,8 @@ class SudokuRenderer {
                     let [row, col] = evt.target.id.match(/\d/g).map(num => parseInt(num));
                     let input = parseInt(evt.key);
 
-                    if (evt.target.textContent.length > 0 || !input) {
-                        if (evt.keyCode === 8) {
+                    if (evt.target.textContent.length > 0 || isNaN(input)) {
+                        if (evt.key === 'Backspace') {
                             evt.target.classList.remove('given-num');
                             evt.target.classList.add('discovered-num');
                             this.sudoku.board[row][col] = 0;
