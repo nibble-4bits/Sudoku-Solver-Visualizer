@@ -1,6 +1,6 @@
 'use strict';
 
-import { UtilFuncs } from './UtilFuncs.js';
+import { Util } from './Util.js';
 
 // Constants for the simulation speed, 
 // each value represents the how much the solve function will sleep in milliseconds
@@ -50,7 +50,7 @@ class SudokuSolver {
                         this.sudoku.board[row][col] = possibleNum;
 
                         this.renderCell(`cell-${row}-${col}`, possibleNum);
-                        await UtilFuncs.sleep(this.speed);
+                        await Util.sleep(this.speed);
 
                         if (await this.solve()) {
                             return true;
