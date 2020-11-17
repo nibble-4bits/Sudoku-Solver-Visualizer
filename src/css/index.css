@@ -53,4 +53,5 @@ button {
     padding: 0.5em 0.8em;
     color: #ffffff;
     background-color: #196cca;
+    cursor: pointer;
 }

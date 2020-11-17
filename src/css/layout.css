@@ -33,6 +33,8 @@ body {
 .slider-row {
     grid-area: slider;
     justify-self: center;
+    display: flex;
+    align-items: center;
     margin-top: 1em;
 }
 
@@ -54,6 +56,19 @@ footer {
     width: 100%;
     background-color: #196cca;
     color: #eef0f2;
-    padding: 0.5em 0;
+    padding: 1em 0;
     text-align: center;
+}
+
+.footer-info {
+    margin: 0;
+}
+
+.footer-info a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
 }
