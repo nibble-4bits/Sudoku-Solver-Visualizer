@@ -14,7 +14,8 @@ https://nibble-4bits.github.io/Sudoku-Solver-Visualizer/
 - [x] Implement functionality to generate sudokus (DONE, 2/20/2020)
 
 ## Built With
-* [Bootstrap](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/) (formerly, now uses CSS Grid)
+* [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 * [Lodash](https://lodash.com/)
 * [Webpack](https://webpack.js.org/)
 * [Travis CI](https://travis-ci.org/)
