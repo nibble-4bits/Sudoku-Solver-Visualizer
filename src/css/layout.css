@@ -7,10 +7,20 @@ html {
 body {
     font-family: "Lato", sans-serif;
     background-color: #eef0f2;
+    margin: 0;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+        "sudoku" 
+        "gap" 
+        "footer";
+    grid-template-rows: min-content 1fr min-content;
 }
 
 .container {
+    grid-area: sudoku;
     display: grid;
+    margin-top: 1rem;
     grid-template-areas:
         "title"
         "board"
@@ -50,9 +60,7 @@ body {
 }
 
 footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    grid-area: footer;
     width: 100%;
     background-color: #196cca;
     color: #eef0f2;
