@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/nibble-4bits/Sudoku-Solver-Visualizer#readme",
   "devDependencies": {
-    "css-loader": "^3.4.2",
-    "style-loader": "^1.1.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.12"
+    "css-loader": "^6.7.3",
+    "style-loader": "^1.3.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "jquery": "^3.5.0",
